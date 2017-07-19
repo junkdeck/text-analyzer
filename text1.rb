@@ -1,4 +1,5 @@
 class TextAnalyzer
+  # class-based and with tons of functions. only use with small files as File#read loads entire file into memory.
 
   def initialize(text)
     @text = text
@@ -35,5 +36,4 @@ class TextAnalyzer
   def get_average_sentences
     return get_sentence_count / get_paragraph_count
   end
-
 end
