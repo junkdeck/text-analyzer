@@ -1,25 +1,27 @@
-class TextAnalyzer
-  attr_reader :count_hash
+# initializes all counter values
+count_hash = {
+  character_count:0,
+  character_non_whitespace_count:0,
+  line_count:0,
+  word_count:0,
+  sentence_count:0,
+  paragraph_count:0,
+  average_words:0,
+  average_sentence:0
+}
 
-  def initialize(file)
-    # resets the counters and stores it in an easily-accessible hash
-    @count_hash = {
-      character_count:0,
-      character_non_whitespace_count:0,
-      line_count:0,
-      word_count:0,
-      sentence_count:0,
-      paragraph_count:0,
-      average_words:0,
-      average_sentence:0
-    }
+File.open('lorem.txt').each do |l|
+  count_hash[:character_count] += l.split('').length
+  count_hash[:character_non_whitespace_count] += l.scan(/\S/).length
+  count_hash[:line_count] += 1
+  count_hash[:word_count] += l.split(' ').length
+  count_hash[:sentence_count] += l.split('.').length
+  count_hash[:paragraph_count] += l.split(/\n\n/).length
+end
 
-    @file = file
+count_hash[:average_words] = count_hash[:word_count] / count_hash[:sentence_count]
+count_hash[:average_sentence] = count_hash[:sentence_count] / count_hash[:paragraph_count]
 
-  end
-
-  def get_counts
-    File.open()
-  end
-
+count_hash.each do |x,y|
+  puts "#{x.to_s.gsub(/_/, ' ')}: #{y}"
 end
