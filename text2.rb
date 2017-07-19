@@ -1,39 +1,25 @@
 class TextAnalyzer
-  # tons of functions. uses File#open for heavier lifting.
+  attr_reader :count_hash
 
   def initialize(file)
+    # resets the counters and stores it in an easily-accessible hash
+    @count_hash = {
+      character_count:0,
+      character_non_whitespace_count:0,
+      line_count:0,
+      word_count:0,
+      sentence_count:0,
+      paragraph_count:0,
+      average_words:0,
+      average_sentence:0
+    }
+
     @file = file
-  end
-
-  def get_character_count
 
   end
 
-  def get_non_whitespace_character_count
-
+  def get_counts
+    File.open()
   end
 
-  def get_line_count
-
-  end
-
-  def get_word_count
-
-  end
-
-  def get_sentence_count
-
-  end
-
-  def get_paragraph_count
-
-  end
-
-  def get_average_words
-
-  end
-
-  def get_average_sentences
-    
-  end
 end
