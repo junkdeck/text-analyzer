@@ -11,7 +11,7 @@ count_hash = {
 }
 
 File.open('lorem.txt').each do |l|
-  count_hash[:character_count] += l.split('').length
+  count_hash[:character_count] += l.length
   count_hash[:character_non_whitespace_count] += l.scan(/\S/).length
   count_hash[:line_count] += 1
   count_hash[:word_count] += l.split(' ').length
