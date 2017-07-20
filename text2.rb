@@ -1,7 +1,9 @@
+
+
 # initializes all counter values
 count_hash = Hash.new(0)
 
-File.open('lorem.txt').each do |l|
+File.open(ARGV[0]).each do |l|
   count_hash[:character_count] += l.length
   count_hash[:character_non_whitespace_count] += l.scan(/\S/).length
   count_hash[:line_count] += 1
